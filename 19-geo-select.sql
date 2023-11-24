@@ -35,12 +35,9 @@ SELECT ST_Distance_Sphere(
         )
     ),
     (
-        SELECT `location`
-        FROM `locations`
-        WHERE `station_id` = (
-            SELECT `id`
-            FROM `stations`
-            WHERE `name` = "Balderas"
-        )
+       SELECT `location`
+       FROM `locations`
+       INNER JOIN `stations` ON `stations`.`id` = `locations`.`station_id`
+       WHERE `stations`.`name` = "Balderas" 
     )
 ) / 1000 as distanceByNameInKM;
