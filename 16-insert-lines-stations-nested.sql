@@ -12,4 +12,16 @@ VALUES (
         FROM `stations`
         WHERE `stations`.`name` = "Lázaro Cárdens"
     )
+),
+(
+    (
+    SELECT `lines`.`id`
+    FROM `lines`
+    WHERE `lines`.`name` = "Línea 9"
+    ),
+    (
+        SELECT `stations`.`id`
+        FROM `stations`
+        WHERE `stations`.`name` = "Tauga"
+    )
 );
