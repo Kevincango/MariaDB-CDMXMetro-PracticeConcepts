@@ -1,0 +1,12 @@
+USE metro_cdmx;
+
+CREATE TRIGGER update_updated_at_field
+BEFORE UPDATE
+ON `lines`
+FOR EACH ROW
+SET NEW.updated_at = NOW();
+
+
+ALTER TABLE `lines`
+MODIFY `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP 
+ON UPDATE CURRENT_TIMESTAMP;
